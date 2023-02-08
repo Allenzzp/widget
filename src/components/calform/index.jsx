@@ -7,6 +7,7 @@ class CalForm extends Component {
       tSale: "",
       sdlySale: "",
       diffSale: "",
+
       tData1: "",
       sdlyData1: "",
       diffData1: "",
@@ -14,10 +15,10 @@ class CalForm extends Component {
       tData2: "",
       sdlyData2: "",
       diffData2: "",
+
       tData3: "",
       sdlyData3: "",
       diffData3: "",
-
     }
   }
 
@@ -26,12 +27,12 @@ class CalForm extends Component {
     const {value, name} = target;
 
     this.setState({
-      [name]: Number(value)
+      [name]: parseFloat(value)
     })
   }
 
   calculateMath = (num1, num2) => {
-    return (Math.round((num1/ num2 - 1) * 1000) / 1000 * 100 + "").slice(0,5) + "%";
+    return (Math.round((num1/ num2 - 1) * 1000)/ 10).toFixed(2) + "%";
   }
 
   handleSubmit = (e) => {
@@ -41,7 +42,12 @@ class CalForm extends Component {
       this.setState({
         diffSale: this.calculateMath(tSale, sdlySale)
       })
+    } else {
+      this.setState( {
+        diffSale: ""
+      })
     }
+    
     if ((tData1 && tData1 !== 0) && (sdlyData1 && sdlyData1 !== 0)) {
       this.setState({
         diffData1: this.calculateMath(tData1, sdlyData1)
@@ -74,7 +80,8 @@ class CalForm extends Component {
               <th>Sales</th>
               <td>
                 <input
-                  type="text"
+                  type="number"
+                  step="0.01"
                   name="tSale"
                   value={this.state.tSale}
                   onChange={this.handleInputChange}
@@ -82,7 +89,7 @@ class CalForm extends Component {
               </td>
               <td>
                 <input
-                  type="text"
+                  type="number"
                   name="sdlySale"
                   value={this.state.sdlySale}
                   onChange={this.handleInputChange}
@@ -94,7 +101,7 @@ class CalForm extends Component {
               <th>Data1</th>
               <td>
                 <input
-                  type="text"
+                  type="number"
                   name="tData1"
                   value={this.state.tData1}
                   onChange={this.handleInputChange}
@@ -102,7 +109,7 @@ class CalForm extends Component {
               </td>
               <td>
                 <input
-                  type="text"
+                  type="number"
                   name="sdlyData1"
                   value={this.state.sdlyData1}
                   onChange={this.handleInputChange}
@@ -114,7 +121,7 @@ class CalForm extends Component {
               <th>Data2</th>
               <td>
                 <input
-                  type="text"
+                  type="number"
                   name="tData2"
                   value={this.state.tData2}
                   onChange={this.handleInputChange}
@@ -122,7 +129,7 @@ class CalForm extends Component {
               </td>
               <td>
                 <input
-                  type="text"
+                  type="number"
                   name="sdlyData2"
                   value={this.state.sdlyData2}
                   onChange={this.handleInputChange}
@@ -134,7 +141,7 @@ class CalForm extends Component {
               <th>Data3</th>
               <td>
                 <input
-                  type="text"
+                  type="number"
                   name="tData3"
                   value={this.state.tData3}
                   onChange={this.handleInputChange}
@@ -142,7 +149,7 @@ class CalForm extends Component {
               </td>
               <td>
                 <input
-                  type="text"
+                  type="number"
                   name="sdlyData3"
                   value={this.state.sdlyData3}
                   onChange={this.handleInputChange}
