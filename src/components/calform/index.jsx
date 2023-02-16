@@ -119,19 +119,19 @@ class CalForm extends Component {
     const {diffSale, diffData1, diffData2, diffData3, diffData4} = this.state;
     let closingText = "";
     if (diffSale) {
-      closingText += `Sales: $${this.state.tSale} (${diffSale > 0? "+" : ""}${diffSale} LY);`;
+      closingText += `Sales: $${this.state.tSale} (${diffSale > 0? "+" : ""}${diffSale + "%"} LY);`;
     }
     if (diffData1) {
-      closingText += ` Traffic: ${this.state.tData1} (${diffData1 > 0? "+" : ""}${diffData1} LY);`;
+      closingText += ` Traffic: ${this.state.tData1} (${diffData1 > 0? "+" : ""}${diffData1 + "%"} LY);`;
     }
     if (diffData2) {
-      closingText += ` Conversion: ${this.state.tData2} (${diffData2 > 0? "+" : ""}${diffData2} LY);`;
+      closingText += ` Conversion: ${this.state.tData2} (${diffData2 > 0? "+" : ""}${diffData2 + "%"} LY);`;
     }
     if (diffData3) {
-      closingText += ` UPT: ${this.state.tData3} (${diffData3 > 0? "+" : ""}${diffData3} LY);`;
+      closingText += ` UPT: ${this.state.tData3} (${diffData3 > 0? "+" : ""}${diffData3 + "%"} LY);`;
     }
     if (diffData4) {
-      closingText += ` ADT: ${this.state.tData4} (${diffData4 > 0? "+" : ""}${diffData4} LY).`;
+      closingText += ` ADT: ${this.state.tData4} (${diffData4 > 0? "+" : ""}${diffData4 + "%"} LY).`;
     }
     return closingText;
   }
