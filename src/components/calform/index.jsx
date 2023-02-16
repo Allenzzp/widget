@@ -119,7 +119,7 @@ class CalForm extends Component {
     const {diffSale, diffData1, diffData2, diffData3, diffData4} = this.state;
     let closingText = "";
     if (diffSale) {
-      closingText += `Sales: ${this.state.tSale} (${diffSale > 0? "+" : ""}${diffSale} LY);`;
+      closingText += `Sales: $${this.state.tSale} (${diffSale > 0? "+" : ""}${diffSale} LY);`;
     }
     if (diffData1) {
       closingText += ` Traffic: ${this.state.tData1} (${diffData1 > 0? "+" : ""}${diffData1} LY);`;
